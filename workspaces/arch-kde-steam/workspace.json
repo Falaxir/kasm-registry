@@ -1,8 +1,7 @@
 {
     "description": "Arch with the KDE desktop environment and steam.",
-    "docker_registry": "https://ghcr.io/",
     "image_src": "arch-kde-steam.png",
-    "name": "falaxir/kasm-images:arch-kde-steam",
+    "name": "ghcr.io/falaxir/kasm-images:arch-kde-steam",
     "run_config": {
       "security_opt": [
         "seccomp=unconfined"

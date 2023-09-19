@@ -2,7 +2,7 @@
 
 const nextConfig = {
   env: {
-    name: 'Kasm falaxir workspaces',
+    name: 'Falaxir',
     description: 'Some of my custom kasm workspaces images',
     icon: '/img/logo.svg',
     listUrl: 'https://falaxir.github.io/kasm-registry/',
