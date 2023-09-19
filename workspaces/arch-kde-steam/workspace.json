@@ -1,5 +1,5 @@
 {
-    "description": "Arch with the KDE desktop environment and steam.",
+    "description": "Arch with the KDE desktop environment and steam installed.",
     "docker_registry": "https://ghcr.io/",
     "image_src": "arch-kde-steam.png",
     "name": "falaxir/kasm-images:arch-kde-steam",

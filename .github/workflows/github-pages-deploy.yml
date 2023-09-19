@@ -6,8 +6,6 @@ on:
       - 'gh-pages'
     paths:
       - './workspaces/**'
-      - './processing/**'
-      - './site/**'
 permissions:
   contents: write
 jobs:
