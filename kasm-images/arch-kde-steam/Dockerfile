@@ -21,9 +21,6 @@ RUN \
     /var/cache/pacman/pkg/* \
     /var/lib/pacman/sync/*
 
-# add local files
-COPY /root /
-
 # ports and volumes
 EXPOSE 3000
 
