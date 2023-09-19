@@ -5,7 +5,9 @@ on:
     branches-ignore:
       - 'gh-pages'
     paths:
-      - './workspaces/**'
+      - 'workspaces/**'
+      - 'processing/**'
+      - 'site/**'
 permissions:
   contents: write
 jobs:
