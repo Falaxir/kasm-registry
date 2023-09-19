@@ -13,7 +13,7 @@ RUN \
     flatpak && \
   echo "**** installing steam ****" && \
   flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && \
-  flatpak install flathub com.valvesoftware.Steam && \
+  flatpak install flathub com.valvesoftware.Steam -y && \
   echo "**** cleanup ****" && \
   rm -rf \
     /config/.cache \
