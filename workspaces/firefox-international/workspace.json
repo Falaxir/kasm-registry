@@ -1,8 +1,8 @@
 {
-    "description": "Arch with the KDE desktop environment and steam.",
+    "description": "Firefox, but with international locales such as japanese, ...",
     "docker_registry": "https://ghcr.io/",
-    "image_src": "arch-kde-steam.png",
-    "name": "ghcr.io/falaxir/kasm-images:arch-kde-steam",
+    "image_src": "firefox-international.png",
+    "name": "ghcr.io/falaxir/kasm-images:firefox-international",
     "run_config": {
       "security_opt": [
         "seccomp=unconfined"
@@ -14,9 +14,9 @@
     },
     "exec_config": {},
     "categories": [
-      "Desktop"
+      "Browser"
     ],
-    "friendly_name": "Arch KDE Steam",
+    "friendly_name": "Firefox International",
     "architecture": [
       "amd64",
       "arm64"
@@ -25,5 +25,5 @@
       "1.13.x",
       "1.14.x"
     ],
-    "uncompressed_size_mb": 6580
+    "uncompressed_size_mb": 1387
   }
