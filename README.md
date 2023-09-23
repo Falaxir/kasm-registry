@@ -8,6 +8,8 @@
 
 <p align="center">This repository is my personal kasm images that i use in my kasm environement</p>
 
+⚠️ Some images may be work in progress, errors might happen or image may not be stable!
+
 ![image](https://user-images.githubusercontent.com/5698566/230064289-9e8967a1-4ff9-43f3-8495-f4170c23a80f.png)
 
 ## Contents
