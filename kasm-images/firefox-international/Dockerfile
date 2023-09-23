@@ -9,11 +9,16 @@ LABEL maintainer="falaxir"
 
 # title
 ENV TITLE=Firefox
-ENV DOCKER_MODS=linuxserver/mods:universal-internationalization
 
 RUN \
-  echo "**** install packages ****" && \
-  echo "**** no package to install ****" && \
+  echo "**** install font packages ****" && \
+    apk add --no-cache \
+    font-noto-all \
+    font-noto-cjk \
+    font-noto-emoji \
+    font-ipa \
+    font-isas-misc \
+    lang && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
