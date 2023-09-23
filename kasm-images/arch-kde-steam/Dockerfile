@@ -22,7 +22,7 @@ RUN \
     /var/cache/pacman/pkg/* \
     /var/lib/pacman/sync/*
 
-ENV XDG_DATA_DIRS=/var/lib/flatpak/exports/share
+# ENV XDG_DATA_DIRS=/var/lib/flatpak/exports/share
 
 # ports and volumes
 EXPOSE 3000
