@@ -1,5 +1,5 @@
 # Base from linuxserver.io images
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
+FROM ghcr.io/linuxserver/webtop:ubuntu-xfce
 
 # set version label
 ARG BUILD_DATE
@@ -11,14 +11,16 @@ ENV TITLE=Steam
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
+# from docker-steam-headless
+# Install mesa and vulkan requirements
+# TODO: Strip this section back to only what is required for all GPU types.
+#       Anything only required for Intel/AMD/NVIDIA should go in the container init.
 RUN \
-  echo "**** install packages ****" && \
-  apt-get update && \
-  dpkg --add-architecture i386 && \
-  apt update && \
-  apt-get install --no-install-recommends -y \
-    wget gdebi-core libgl1-mesa-glx:i386 lsof && \
-      echo "**** Install mesa requirements ****" \
+    echo "**** Update apt database ****" \
+        && dpkg --add-architecture i386 \
+        && apt-get update \
+    && \
+    echo "**** Install mesa requirements ****" \
         && apt-get install -y --no-install-recommends \
             libgl1-mesa-dri \
             libgl1-mesa-glx \
@@ -26,7 +28,6 @@ RUN \
             libglu1-mesa \
             mesa-utils \
             mesa-utils-extra \
-            xdg-utils \
     && \
     echo "**** Install vulkan requirements ****" \
         && apt-get install -y --no-install-recommends \
@@ -36,6 +37,31 @@ RUN \
             mesa-vulkan-drivers:i386 \
             vulkan-tools \
     && \
+    echo "**** Install desktop requirements ****" \
+        && apt-get install -y --no-install-recommends \
+            libdbus-1-3 \
+            libegl1 \
+            libgtk-3-0 \
+            libgtk2.0-0 \
+            libsdl2-2.0-0 \
+    && \
+    echo "**** Section cleanup ****" \
+        && apt-get clean autoclean -y \
+        && apt-get autoremove -y \
+        && rm -rf \
+            /var/lib/apt/lists/* \
+            /var/tmp/* \
+            /tmp/* \
+    && \
+    echo
+
+# Install Steam
+RUN \
+    echo "**** Install requirements ****" \
+        && apt-get update && apt-get install -y --no-install-recommends \
+            wget \
+            gdebi \
+    && \
   echo "**** install steam ****" && \
   wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb && \
   gdebi --n ~/steam.deb && \
@@ -43,9 +69,51 @@ RUN \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
-    /var/lib/apt/lists/* \
-    /var/tmp/* \
-    /tmp/*
+  /var/lib/apt/lists/* \
+  /var/tmp/* \
+  /tmp/* && \
+    echo
+
+ENV \
+    NVIDIA_DRIVER_CAPABILITIES="all" \
+    NVIDIA_VISIBLE_DEVICES="all"
+
+
+# RUN \
+#   echo "**** install packages ****" && \
+#   apt-get update && \
+#   dpkg --add-architecture i386 && \
+#   apt update && \
+#   apt-get install --no-install-recommends -y \
+#   wget gdebi-core libgl1-mesa-glx:i386 lsof && \
+#   echo "**** Install mesa requirements ****" \
+#   && apt-get install -y --no-install-recommends \
+#   libgl1-mesa-dri \
+#   libgl1-mesa-glx \
+#   libgles2-mesa \
+#   libglu1-mesa \
+#   mesa-utils \
+#   mesa-utils-extra \
+#   xdg-utils \
+#   && \
+#   echo "**** Install vulkan requirements ****" \
+#   && apt-get install -y --no-install-recommends \
+#   libvulkan1 \
+#   libvulkan1:i386 \
+#   mesa-vulkan-drivers \
+#   mesa-vulkan-drivers:i386 \
+#   vulkan-tools \
+#   && \
+  # echo "**** install steam ****" && \
+  # wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb && \
+  # gdebi --n ~/steam.deb && \
+  # sed -i 's|</applications>|  <application title="*Steam" type="normal">\n    <maximized>yes</maximized>\n  </application>\n</applications>|' /etc/xdg/openbox/rc.xml && \
+  # echo "**** cleanup ****" && \
+  # apt-get autoclean && \
+  # rm -rf \
+  # /var/lib/apt/lists/* \
+  # /var/tmp/* \
+  # /tmp/*
 
 # ports and volumes
 EXPOSE 3000
