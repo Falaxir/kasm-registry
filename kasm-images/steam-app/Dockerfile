@@ -13,10 +13,13 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 RUN \
   echo "**** install packages ****" && \
-  apt-get update && add-apt-repository multiverse && apt-get update && \
+  apt-get update && \
+  dpkg --add-architecture i386 && \
+  apt update && \
   apt-get install --no-install-recommends -y \
-    chromium \
-    steam && \
+    wget gdebi-core libgl1-mesa-glx:i386 && \
+  wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb && \
+  gdebi ~/steam.deb && \
   sed -i 's|</applications>|  <application title="*Steam" type="normal">\n    <maximized>yes</maximized>\n  </application>\n</applications>|' /etc/xdg/openbox/rc.xml && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
