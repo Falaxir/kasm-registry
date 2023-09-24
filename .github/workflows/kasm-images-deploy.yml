@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         oses:
-          - arch-kde-steam
+          - steam-app
           - firefox-international
     steps:
       - uses: actions/checkout@v2
