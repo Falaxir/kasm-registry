@@ -69,7 +69,7 @@ RUN \
   apt install steam -y && \
   sed -i 's|</applications>|  <application title="*Steam" type="normal">\n    <maximized>yes</maximized>\n  </application>\n</applications>|' /etc/xdg/openbox/rc.xml && \
   echo "**** cleanup ****" && \
-        && apt-get clean autoclean -y \
+        apt-get clean autoclean -y \
         && apt-get autoremove -y \
         && rm -rf \
             /var/lib/apt/lists/* \
