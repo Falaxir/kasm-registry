@@ -19,7 +19,7 @@ RUN \
   apt-get install --no-install-recommends -y \
     wget gdebi-core libgl1-mesa-glx:i386 && \
   wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb && \
-  gdebi ~/steam.deb && \
+  gdebi --n ~/steam.deb && \
   sed -i 's|</applications>|  <application title="*Steam" type="normal">\n    <maximized>yes</maximized>\n  </application>\n</applications>|' /etc/xdg/openbox/rc.xml && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
