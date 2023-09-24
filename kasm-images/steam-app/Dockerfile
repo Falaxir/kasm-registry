@@ -26,6 +26,7 @@ RUN \
             libglu1-mesa \
             mesa-utils \
             mesa-utils-extra \
+            xdg-utils \
     && \
     echo "**** Install vulkan requirements ****" \
         && apt-get install -y --no-install-recommends \
