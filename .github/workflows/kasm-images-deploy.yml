@@ -15,6 +15,7 @@ jobs:
         oses:
           - steam-app
           - firefox-international
+          - ollama-gui
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
