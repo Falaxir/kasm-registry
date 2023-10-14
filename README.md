@@ -22,7 +22,9 @@ From: https://github.com/linuxserver/docker-firefox
 
 Add a GUI to the ollama ai api, good for self hosting ai.
 
-You will need to edit the image if you want your custom endpoint api url, you can do that (directly on kasm)[https://kasmweb.com/docs/latest/guide/sessions.html]()
+If it doesn't display the gui (back screen), just right click ans select ollama-gui to display it
+
+You will need persistant storage to save your settings, i might need to fork the original repository to do some modifications (allow export/import text based instead of file based)
 
 Build process is very long, because it build the entire application (using tauri )
 
