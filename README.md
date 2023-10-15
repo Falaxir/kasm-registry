@@ -45,3 +45,7 @@ So instead i am using my proxmox server to have a windows vm and connect to it t
 i will not update this image anymore but its staying there for people who want to play with it.
 
 From: https://github.com/linuxserver/docker-webtop
+
+# Support me by Buying Me A Coffee
+
+[!["Support me by Buying Me A Coffee"](https://cdn.buymeacoffee.com/buttons/v2/arial-orange.png)](https://www.buymeacoffee.com/falaxir)
