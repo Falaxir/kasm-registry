@@ -48,4 +48,4 @@ From: https://github.com/linuxserver/docker-webtop
 
 # Support me by Buying Me A Coffee
 
-[!["Support me by Buying Me A Coffee"](https://cdn.buymeacoffee.com/buttons/v2/arial-orange.png)](https://www.buymeacoffee.com/falaxir)
+[!["Support me by Buying Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/falaxir)
