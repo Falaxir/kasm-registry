@@ -26,7 +26,9 @@ If it doesn't display the gui (back screen), just right click ans select ollama-
 
 You will need persistant storage to save your settings, i might need to fork the original repository to do some modifications (allow export/import text based instead of file based)
 
-Build process is very long, because it build the entire application (using tauri )
+Build process is very long, because it build the entire application (using tauri ) And also opening the image on kasm is long...
+
+I recommand setting up ollama [as a system startup service](https://github.com/jmorganca/ollama/blob/main/docs/linux.md#adding-ollama-as-a-startup-service-optional), you will need to add `Environment="OLLAMA_ORIGINS=*"` & `Environment="OLLAMA_HOST=0.0.0.0:11435"` on your system startup file in order for this workspace to work.
 
 TODO: Reduce the size of the image 😶
 
