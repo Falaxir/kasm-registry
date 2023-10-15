@@ -30,6 +30,8 @@ Build process is very long, because it build the entire application (using tauri
 
 I recommand setting up ollama [as a system startup service](https://github.com/jmorganca/ollama/blob/main/docs/linux.md#adding-ollama-as-a-startup-service-optional), you will need to add `Environment="OLLAMA_ORIGINS=*"` & `Environment="OLLAMA_HOST=0.0.0.0:11435"` on your system startup file in order for this workspace to work.
 
+If you setup your ollama as a system startup service, you will need to pass `OLLAMA_HOST=0.0.0.0:11435` to pull your models in the command line, example : `OLLAMA_HOST=0.0.0.0:11435 ollama pull llama2`
+
 TODO: Reduce the size of the image 😶
 
 From: https://github.com/ollama-interface/Ollama-Gui
